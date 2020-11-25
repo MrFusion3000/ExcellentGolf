@@ -14,6 +14,12 @@ namespace ExcellentGolf
         {
 
         }
+
+        public CustomException(string message, Ball _ball, double _shotLength) : base(message)
+        {
+            double ShotLength = _shotLength;
+            _ball.PlacementOfBall += ShotLength; 
+        }
     }
 
             

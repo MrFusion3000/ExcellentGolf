@@ -14,17 +14,17 @@ namespace ExcellentGolf
 
             Course course = new Course()
             {
-                CourseLength = 100,
-                CourseWidth = 250,
-                PlacementOfPin = 25
+                CourseLength = 100.0,
+                CourseWidth = 250.0,
+                PlacementOfPin = 25.0
             };
 
             Ball ball = new Ball()
             {
-                PlacementOfBall = 0
+                PlacementOfBall = 0.0
             };
 
-            Console.WriteLine("{0} is about to play his most important hole, ever.", player.Name);
+            Console.WriteLine("{0} is about to play his most important hole, ever.\n", player.Name);
 
             bool isAlive = true;
             while (isAlive)
@@ -34,8 +34,8 @@ namespace ExcellentGolf
 
                 double ShotLength = ball.BallHit(ShotSpeed, ShotAngle);
 
-                Console.WriteLine(ShotLength);
-
+                Console.WriteLine("Shot length: {0}", ShotLength);
+                Console.WriteLine("Distance to Pin: {0}", course.CourseLength-course.PlacementOfPin);
                 ball.PlacementOfBall += ShotLength;
                 Console.WriteLine("Place on of ball: {0}", ball.PlacementOfBall);
 
@@ -43,10 +43,15 @@ namespace ExcellentGolf
                 {
                     if (ball.PlacementOfBall < course.CourseLength)
                     {
-                        throw new Exception("Ball not close enough to pin.");                        
+                        if (ball.PlacementOfBall < course.CourseLength - course.PlacementOfPin)
+                        {
+                            throw new CustomException("Ball not close enough to pin.", ball, ShotLength);
+                        }
                     }
                     else
                     {
+                        ball.PlacementOfBall = 0.0;
+                        Console.WriteLine("You loose!");
                         throw new CustomException("Ball Out Of Bounds!");
                     }                
                 }            
