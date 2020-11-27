@@ -10,10 +10,10 @@ namespace ExcellentGolf
         public double CourseWidth { get; set; }
         public double PlacementOfTee { get; } = 0;
         public double PlacementOfPin { get; set; }
+        public int MaxStrokes { get; set; }
 
         public Course()
         {
-
         }
     }
 

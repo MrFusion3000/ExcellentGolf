@@ -10,18 +10,24 @@ namespace ExcellentGolf
         {
 
         }
+
         public CustomException(string message) : base(message)
+        {
+
+        }        
+    }
+
+    class ToManyStrokesException : Exception
+    {
+        public ToManyStrokesException()
         {
 
         }
 
-        //public CustomException(string message, Ball _ball, double _shotLength) : base(message)
-        //{
-        //    double ShotLength = _shotLength;
-        //    _ball.PlacementOfBall += ShotLength; 
-        //}
-    }
+        public ToManyStrokesException(string message) : base(message)
+        {
 
-            
+        }
+    }
 
 }
