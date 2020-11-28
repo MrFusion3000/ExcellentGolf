@@ -8,26 +8,32 @@ namespace ExcellentGolf
     {
         public CustomException()
         {
-
         }
 
         public CustomException(string message) : base(message)
         {
-
-        }        
+        }
     }
 
     class ToManyStrokesException : Exception
     {
         public ToManyStrokesException()
         {
-
         }
 
         public ToManyStrokesException(string message) : base(message)
         {
-
         }
     }
 
+    class WinException : Exception
+    {
+        public WinException()
+        {
+        }
+
+        public WinException(string message) : base(message)
+        {
+        }
+    }
 }
